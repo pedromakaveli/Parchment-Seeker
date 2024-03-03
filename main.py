@@ -7,10 +7,10 @@ from parchmentseeker import ParchmentSeeker
 
 if __name__ == '__main__':
     domains = [
-
+        
     ]
 
-    pf = ParchmentSeeker(urls=domains, dorks=[])
+    pf = ParchmentSeeker(urls=domains, extensions=[])
     try:
         pf.request()
         print(f'Hosts founded: {pf.founded}')
