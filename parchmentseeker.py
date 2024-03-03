@@ -22,12 +22,19 @@ class ParchmentSeeker:
 
     dorks = []
     urls = []
-    extensions = ['.php', '.asp', '.html']
+    extensions = []
     founded = []
 
-    def __init__(self, urls=None, dorks=None):
+    def __init__(self, urls=None, dorks=None, extensions=None):
 
         self.urls = urls
+        self.extensions = extensions
+        self.dorks = dorks
+
+        if extensions is not None:
+            self.extensions = extensions
+        else:
+            self.extensions = ['.php', '.asp', '.html']
 
         if dorks is not None:
             self.dorks = dorks

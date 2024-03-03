@@ -10,7 +10,7 @@ if __name__ == '__main__':
 
     ]
 
-    pf = ParchmentSeeker(urls=domains)
+    pf = ParchmentSeeker(urls=domains, extensions=['.php'])
     try:
         pf.request()
         print(f'Hosts founded: {pf.founded}')
