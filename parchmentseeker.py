@@ -22,6 +22,7 @@ class ParchmentSeeker:
 
     dorks = []
     urls = []
+    extensions = ['.php', '.asp', '.html']
     founded = []
 
     def __init__(self, urls=None, dorks=None):
@@ -57,11 +58,9 @@ class ParchmentSeeker:
         if self.urls is None or len(self.urls) == 0:
             raise ValueError("The list of URLs is empty")
 
-        extensions = ['.php', '.asp', '.html']
-
         for link in self.urls:
             for dork in self.dorks:
-                for ext in extensions:
+                for ext in self.extensions:
                     page = link + dork + ext
 
                     try:
