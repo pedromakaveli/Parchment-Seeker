@@ -5,10 +5,8 @@ class ParchmentSeeker:
     urls = []
 
     def __init__(self, urls=None, dorks=None):
-        if urls is not None and len(urls) > 0:
-            self.urls = urls
-        else:
-            print("The list of URLs is empty")
+
+        self.urls = urls
 
         if dorks is not None:
             self.dorks = dorks
@@ -36,6 +34,9 @@ class ParchmentSeeker:
             Try to find the admin panel
         '''
 
+        if self.urls is None or len(self.urls) == 0:
+            raise ValueError("The list of URLs is empty")
+
         extensions = ['.php', '.asp', '.html']
 
         for link in self.urls:
@@ -58,5 +59,5 @@ if __name__ == '__main__':
     pf = ParchmentSeeker(urls=[])
     try:
         pf.request()
-    except ValueError:
-        ...
+    except ValueError as error:
+        print(error)
