@@ -28,8 +28,6 @@ class ParchmentSeeker:
     def __init__(self, urls=None, dorks=None, extensions=None):
 
         self.urls = urls
-        self.extensions = extensions
-        self.dorks = dorks
 
         if extensions is not None:
             self.extensions = extensions
@@ -62,8 +60,14 @@ class ParchmentSeeker:
             Try to find the admin panel
         '''
 
-        if self.urls is None or len(self.urls) == 0:
+        if len(self.urls) == 0:
             raise ValueError("The list of URLs is empty")
+
+        if len(self.extensions) == 0:
+            raise ValueError("The list of extensions is empty")
+
+        if len(self.dorks) == 0:
+            raise ValueError("The list of dorks is empty")
 
         for link in self.urls:
             for dork in self.dorks:
