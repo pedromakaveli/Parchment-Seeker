@@ -72,5 +72,9 @@ class ParchmentSeeker:
                         print(f'Unexpected HTTP error at: {page} STATUS: {response.status_code}\n')
                         continue
 
+                    except requests.exceptions.Timeout:
+                        print(f'The request has timed out at {page}')
+                        continue
+
                     print(f'Admin panel found at: {page} STATUS: {response.status_code}\n')
                     self.founded.append(page)

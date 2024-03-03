@@ -13,7 +13,7 @@ if __name__ == '__main__':
     pf = ParchmentSeeker(urls=domains)
     try:
         pf.request()
-        print(f'Hosts founded: {ParchmentSeeker.founded}')
+        print(f'Hosts founded: {pf.founded}')
 
     except ValueError as error:
         print(error)
