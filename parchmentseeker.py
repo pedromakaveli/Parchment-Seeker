@@ -1,6 +1,25 @@
+'''
+
+Module for searching admin panels on given URLs using ParchmentSeeker class.
+
+'''
+
 import requests
 
+
 class ParchmentSeeker:
+    '''
+    A class to seek admin panels on given URLs.
+
+    Attributes:
+        dorks (list): A list of common admin panel paths to be appended to URLs.
+        urls (list): A list of URLs to search for admin panels.
+
+    Methods:
+        __init__: Initializes the ParchmentSeeker object.
+        request: Tries to find admin panels on the provided URLs.
+    '''
+
     dorks = []
     urls = []
 
@@ -53,11 +72,3 @@ class ParchmentSeeker:
                         continue
 
                     print(f'Admin panel found at: {page} STATUS: {response.status_code}\n')
-
-if __name__ == '__main__':
-    domains = []
-    pf = ParchmentSeeker(urls=[])
-    try:
-        pf.request()
-    except ValueError as error:
-        print(error)
