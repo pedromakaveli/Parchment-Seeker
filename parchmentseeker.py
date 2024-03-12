@@ -52,7 +52,7 @@ class ParchmentSeeker:
                     'admin/home', 'admin_area/admin', 'admin_area/login',
                     'panel-administracion', 'admin/cp', 'cp',
                     'adminpanel/index', 'adminpanel/login', 'adminpanel/admin',
-                    'adminpanel/admin-login', 'adminarea'
+                    'adminpanel/admin-login', 'adminarea',
                 ]
 
     def request(self):
@@ -79,12 +79,12 @@ class ParchmentSeeker:
                         response.raise_for_status()
 
                     except requests.exceptions.HTTPError:
-                        print(f'Unexpected HTTP error at: {page} STATUS: {response.status_code}\n')
+                        print(f'\033[1;33mUnexpected HTTP error at:\033[0m {page} STATUS: \033[0;31m{response.status_code}\033[0m\n')
                         continue
 
                     except requests.exceptions.Timeout:
-                        print(f'The request has timed out at {page}')
+                        print(f' \033[0;31mThe request has timed out at {page}\033[0m')
                         continue
 
-                    print(f'Admin panel found at: {page} STATUS: {response.status_code}\n')
+                    print(f'\033[0;32mAdmin panel found at:\033[0m {page} STATUS: \033[0;32m{response.status_code}\033[0m\n')
                     self.founded.append(page)
