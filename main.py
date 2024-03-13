@@ -2,6 +2,7 @@
 Script to search for administration panels on provided URLs.
 '''
 
+import argparse
 from parchmentseeker import ParchmentSeeker
 
 print("""
@@ -26,6 +27,13 @@ Enjoy \033[1;37mParchmentSeeker\033[0m, thanks for choice.
 """)
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(
+        description='Try to find specified admin panel on specified hosts',
+    )
+    parser.add_argument('--hosts', help='Receives specified hosts', type=str)
+    parser.add_argument('--dorks', help='Receives specified dorks', type=str)
+    parser.add_argument('--extensions', help='Receives specified extensions', type=str)
+    parser.parse_args()
     domains = [
 
     ]
